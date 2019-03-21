@@ -23,9 +23,9 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI, 
-    { useNewURLParser: true }
-);
+// mongoose.connect(process.env.MONGODB_URI, 
+//     { useNewURLParser: true }
+// );
 
 // var MONGODB_URI = keys.MONGODB_URI
 var MONGODB_URI = "mongodb://heroku_lmjgf2f6:pa7fhpg654vl22o0um7us6a393@ds117846.mlab.com:17846/heroku_lmjgf2f6"
