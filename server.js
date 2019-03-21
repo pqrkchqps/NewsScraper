@@ -23,10 +23,14 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
-var MONGODB_URI = keys.MONGODB_URI
+mongoose.connect(process.env.MONGODB_URI, 
+    { useNewURLParser: true }
+);
+
+// var MONGODB_URI = keys.MONGODB_URI
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 
 
