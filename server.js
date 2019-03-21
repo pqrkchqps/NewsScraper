@@ -28,9 +28,9 @@ mongoose.connect(process.env.MONGODB_URI,
 );
 
 // var MONGODB_URI = keys.MONGODB_URI
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = "mongodb://heroku_lmjgf2f6:pa7fhpg654vl22o0um7us6a393@ds117846.mlab.com:17846/heroku_lmjgf2f6"
 
-// mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI);
 
 
 
