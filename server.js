@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-const keys = require("./keys");
+// const keys = require("./keys");
 // Require all models
 var db = require("./models");
 
