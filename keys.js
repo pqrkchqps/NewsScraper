@@ -1,3 +1,3 @@
-exports.Mongo = {
-    id: process.env.Mongo_ID
+exports.MONGODB_URI = {
+    id: process.env.MONGODB_URI
   }
