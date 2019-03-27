@@ -59,7 +59,7 @@ app.get("/scrape", function (req, res) {
 
             console.log(result);
 
-           
+
             // Create a new Article using the `result` object built from scraping
             db.Article.create(result)
                 .then(function (dbArticle) {
@@ -81,9 +81,9 @@ app.get("/scrape", function (req, res) {
 app.get("/articles", function (req, res) {
     // Grab every document in the Articles collection
     db.Article.find({})
-        .then(function (dbArticle) {
+        .then(function (articles) {
             // If we were able to successfully find Articles, send them back to the client
-            res.json(dbArticle);
+            res.json(articles);
         })
         .catch(function (err) {
             // If an error occurred, send it to the client

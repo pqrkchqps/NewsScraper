@@ -1,16 +1,22 @@
+$(document).ready(printArticles);
 
-// Grab the articles as a json
-$.getJSON("/articles", function (data) {
-    // For each one
-    for (var i = 0; i < data.length; i++) {
-        // Display the apropos information on the page
-        //$("#articles").append("<div class='jumbotron'><p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "<br/>" + data[i].summary + "</p></div>");
-        $("#articles").append("<div class='jumbotron'><div class='abc' data-id='" + data[i]._id + "'><a href='" + data[i].link + "'><h4>" + data[i].title + "</h4></a><p>" + data[i].summary + "</p></div></div>");
-    }
-});
+function printArticles() {
+  $("#articles").empty();
+  // Grab the articles as a json
+  $.getJSON("/articles", function (article) {
+      // For each one
+      for (var i = 0; i < article.length; i++) {
+          // Display the apropos information on the page
+          //$("#articles").append("<div class='jumbotron'><p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "<br/>" + data[i].summary + "</p></div>");
+          $("#articles").append("<div class='jumbotron'><div class='abc' data-id='"
+                + article[i]._id + "'><a href='" + article[i].link + "'><h4>" + article[i].title
+                + "</h4></a><p>" + article[i].summary + "</p></div></div>");
+      }
+  });
+}
 
 
-//load scraped articles. 
+//load scraped articles.
 
 $("#scrape_btn").on("click", function () {
 
@@ -20,8 +26,9 @@ $("#scrape_btn").on("click", function () {
         url: "/scrape"
     })
         // With that done, add the note information to the page
-        .then(function (data) {
-            console.log(data);
+        .then(function (articles) {
+            console.log(articles);
+            printArticles(articles);
         });
 });
 
@@ -90,7 +97,7 @@ $(document).on("click", "#savenote", function () {
     $("#bodyinput").val("");
 });
 
-//delete the note 
+//delete the note
 $(document).on("click", ".delete", function () {
 
     $.ajax({
@@ -100,4 +107,3 @@ $(document).on("click", ".delete", function () {
 
     $(this).closest("div").remove();
 });
-
